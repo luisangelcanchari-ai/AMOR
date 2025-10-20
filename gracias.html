@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gracias por existir 💖</title>
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    body {
+      margin: 20px;
+      padding: 200px;
+      overflow: hidden;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      text-align: center;
+      color: #fff;
+      background: linear-gradient(135deg, #98fbe9, #9af79d);
+      animation: fondo 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes fondo {
+      0% { background-position: left top; }
+      100% { background-position: right bottom; }
+    }
+
+    .contenido {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 50px;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      text-shadow: 2px 2px 8px #ff4081;
+      animation: aparecer 2s ease forwards;
+    }
+
+    @keyframes aparecer {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .frases {
+      margin-top: 20px;
+      font-size: 1.2em;
+      font-style: italic;
+      opacity: 0;
+      animation: frase 2s ease forwards;
+    }
+
+    @keyframes frase {
+      0% { opacity: 0; transform: translateY(15px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Botón */
+    #btnVolver {
+      margin-top: 30px;
+      padding: 12px 28px;
+      background-color: #ff80ab;
+      border: none;
+      color: white;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      animation: latido 1.5s infinite;
+      transition: 0.3s;
+    }
+
+    #btnVolver:hover {
+        transform: scale(1.05);
+    }
+
+    @keyframes latido {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    
+
+    @keyframes flotar {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="corazones"></div>
+
+  <div class="contenido">
+    <h1 id="mensaje">Gracias por existir, Alexandra 💕</h1>
+    <p id="frase" class="frases"></p>
+    <p> no pudimos salir el mismo dia de tu cumpleaños amor pero tengo una sorpresa para ti 
+      te amo mucho mi vida quiero ser muy feliz a tu lado 
+    </p>
+    <button id="btnVolver">🏠 Volver al inicio</button>
+  </div>
+
+  <audio autoplay loop>
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // 🌸 Frases que van apareciendo
+    const frases = [
+      "Tu sonrisa ilumina mis días 🌞",
+      "Eres mi motivo favorito para ser feliz 💫",
+      "Desde que llegaste, todo tiene sentido 💖",
+      "Te amo más de lo que las palabras pueden decir 💋",
+      "Eres y serás mi amor eterno 💐"
+    ];
+    let index = 0;
+    const fraseEl = document.getElementById("frase");
+
+    function mostrarFrase() {
+      fraseEl.textContent = frases[index];
+      fraseEl.style.opacity = 1;
+      index = (index + 1) % frases.length;
+    }
+
+    mostrarFrase();
+    setInterval(mostrarFrase, 4000);
+
+    // 💕 Corazones flotantes
+    const contenedor = document.querySelector(".corazones");
+    function crearCorazon() {
+      const corazon = document.createElement("div");
+      corazon.classList.add("corazon");
+      corazon.textContent = "💖";
+      corazon.style.left = Math.random() * 100 + "%";
+      corazon.style.fontSize = Math.random() * 25 + 15 + "px";
+      corazon.style.animationDuration = (4 + Math.random() * 3) + "s";
+      contenedor.appendChild(corazon);
+      setTimeout(() => corazon.remove(), 7000);
+    }
+    setInterval(crearCorazon, 400);
+
+    // 🏠 Botón volver
+    document.getElementById("btnVolver").addEventListener("click", () => {
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
+

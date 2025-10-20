@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Alexandra 📸</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body class="pagina-galeria">
+    <div class="contenido">
+        <h1>📸 Nuestros momentos más lindos 💖</h1>
+        <div class="galeria">
+            <img src="fotos/foto1.jpg" alt="">
+            <img src="fotos/foto2.jpg" alt="">
+            <img src="fotos/foto3.jpg" alt="">
+            <img src="fotos/foto4.jpg" alt="">
+            <img src="fotos/foto5.jpg" alt="">
+        </div>
+        <button onclick="location.href='index.html'">⬅️ Volver</button>
+    </div>
+
+    <script>
+        // Carrusel automático
+        const imgs = document.querySelectorAll(".galeria img");
+        let idx = 0;
+        function mostrar(n) {
+            imgs.forEach((img, i) => {
+                img.style.opacity = i === n ? "1" : "0";
+            });
+        }
+        mostrar(0);
+        setInterval(() => {
+            idx = (idx + 1) % imgs.length;
+            mostrar(idx);
+        }, 3000);
+    </script>
+</body>
+</html>

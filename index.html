@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños❤</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h1>🎂 ¡Feliz Cumpleaños, Alexandra! 🎂</h1>
+        <p class="subtitulo">Con todo mi amor, te dedico este regalo especial 💝</p>
+
+        <img src="fotos/amor.jpg" alt="Alexandra" class="foto">
+
+        <div class="botones">
+            <button onclick="location.href='carta.html'">💌 Leer mi carta</button>
+            <button onclick="location.href='galeria.html'">📸 Ver galería</button>
+            <button onclick="location.href='musica.html'">🎵 Escuchar música</button>
+            <button onclick="location.href='amor.html'">💖 Te amo</button>
+            <button onclick="location.href='gracias.html'">Gracias :3</button>
+        </div>
+    </div>
+    <div class="corazon"></div>
+    <div class="corazon" style="left: 20%; animation-delay: 0s;"></div>
+    <div class="contenedor">
+  <h1>MENSAJE SORPRESA</h1>
+  <p>
+    Hoy quiero recordarte lo especial que eres para mí.  
+    Cada sonrisa tuya ilumina mi oscuridad, y cada momento contigo  
+    es un regalo que atesoro con todo mi corazón. 💖
+  </p>
+</div>
+<div class="contenido">
+    <h1> TE AMOR MUCHO MI VIDA :3 </h1>
+    <P>
+        A pesar de todos los problemas que vengan se que nuestro amor es mas grande y  puede con todo esto asi que tenemos
+        que seguir adelante y seguir luchando para fortalecer nuestro amor cada dia mas y mas.
+    </P>
+<audio id="musica" loop>
+  <source src="MUSICA/Reik_peroteconoci.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const musica = document.getElementById("musica");
+  window.addEventListener("load", () => {
+    musica.play().catch(() => {
+      document.body.addEventListener("click", () => {
+        musica.play();
+      }, { once: true });
+    });
+  });
+
+  function volverInicio() {
+    window.location.href = "index.html";
+  }
+</script>
+
+
+    
+</body>
+</html>
+
+
